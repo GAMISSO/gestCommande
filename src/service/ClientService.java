@@ -11,6 +11,14 @@ public class ClientService {
         nbreClient=0;
     };
 
+    public boolean ajouterClient(Client client){
+        if(nbreClient<TabClient.length){
+            TabClient[nbreClient]=client;
+            return true;
+        }
+        return false;
+    }
+
     public Client[] getTabClient(){
         return TabClient;
     }
