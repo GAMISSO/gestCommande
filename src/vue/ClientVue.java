@@ -1,20 +1,30 @@
 package vue;
 
-import entity.Client;
+import Data.entity.Clients;
+import service.ClientService;
+
+import java.util.List;
 
 public class ClientVue extends Vue {
+    private ClientService clientService;
 
-    public Client saisieClient(){
-        Client client=new Client();
-        client.setNom(saisieChampOblig("Nom"));
-        client.setPrenom(saisieChampOblig("Prenom"));
-        client.setTelephone(saisieEntierOblig("Telephone"));
-        return client;
+    public ClientVue(){
+
     }
 
-    public void listerClients(Client[] clients){
-        for (int i = 0; i<clients.length; i++){
-            System.out.println(clients[i].toChaine());
+    public ClientVue(ClientService clientService) {
+        this.clientService = clientService;
+    }
+
+    public Clients saisieClient(){
+        Clients clients = new Clients();
+        clientService.saveClient( clients );
+        return clients;
+    }
+
+    public void listerClients(List<Clients> clients){
+        for (int i = 0; i <clients.size() ; i++) {
+            System.out.println(clients.get(i).toString());
         }
     }
 }

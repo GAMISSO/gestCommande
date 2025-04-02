@@ -1,19 +1,19 @@
-package entity;
+package Data.entity;
 
-public class Client {
+public class Clients {
     private String nom;
     private String prenom;
-    private int telephone;
+    private String telephone;
     private int id;
 
-    public Client(String nom, String prenom, int telephone, int id) {
+    public Clients(String nom, String prenom, String telephone, int id) {
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
         this.id = 1;
     }
 
-    public Client() {}
+    public Clients() {}
 
     public String getNom() {
         return nom;
@@ -31,11 +31,11 @@ public class Client {
         this.prenom = prenom;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
@@ -43,7 +43,17 @@ public class Client {
         return id;
     }
 
-    public String toChaine(){
-        return "Nom: "+nom + "Prénom " + prenom + "Téléphone: " + telephone + "identifiant " + id;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Clients{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", telephone=" + telephone +
+                ", id=" + id +
+                '}';
     }
 }

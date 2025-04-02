@@ -2,8 +2,13 @@ package vue;
 
 import java.util.Scanner;
 
-public class Vue {
-     protected Scanner sc=new Scanner(System.in);
+public abstract class Vue {
+    protected static Scanner sc;
+
+    public static void setSc(Scanner sc) {
+        Vue.sc = sc;
+    }
+
     protected String saisieChampOblig(String message){
         String result;
         while(true){
